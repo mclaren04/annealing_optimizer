@@ -101,7 +101,9 @@ double annealing_optimizer(struct task* t, struct params* p, double* res)
             }
             cur_f = cand_f;
             step += 1;
-            printf("%f\n", cur_temp);
+            if (step % 1000 == 0) {
+                printf("step = %d; temperature = %f\n", step, cur_temp);
+            }
         }
     } while (cur_temp > p->eps);
     
